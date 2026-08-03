@@ -8,9 +8,9 @@
 - **Version:** `0.1.0-beta.1` prerelease MVP, not yet published
 - **Date last updated:** 2026-08-03
 - **Local repository:** initialized on branch `main`
-- **Commit state:** one complete initial import commit on `main`; online publication remains pending
-- **Online hosting:** owner and public URL confirmed; repository creation pending
-- **Git remote:** target is `https://github.com/YalamberIngnam/appsleuth.git`; not added until repository creation
+- **Commit state:** bootstrap commits are published on protected `main`; ongoing changes use short-lived branches and pull requests
+- **Online hosting:** public at `https://github.com/YalamberIngnam/appsleuth`
+- **Git remote:** `origin` is `https://github.com/YalamberIngnam/appsleuth.git`; local `main` tracks `origin/main`
 - **Homebrew tap:** not created
 - **Primary target:** Apple Silicon, macOS 13+
 - **Implementation language:** Swift 6 with Foundation and no third-party runtime dependencies
@@ -84,6 +84,9 @@ AppSleuth is an evidence-first macOS application uninstaller, cleanup, and diagn
 - GitHub Actions are pinned to immutable full commit SHAs, with weekly Dependabot checks for action updates.
 - Beta-aware release publishing, SHA-256 checksums, and GitHub artifact provenance attestations.
 - Documented release, support, versioning, review, and solo-maintainer branch-protection practices.
+- Public GitHub repository owned and maintained by `@YalamberIngnam`, with CODEOWNERS, Issues, accurate discovery topics, and automatic branch deletion after merge.
+- Active `Protect main` ruleset requiring pull requests, the Apple Silicon CI check, resolved conversations, and linear history while blocking branch deletion and force-pushes. Zero approving reviews are required while there is only one maintainer.
+- Private vulnerability reporting, immutable releases, secret scanning, and secret push protection enabled and API-verified.
 - README, MIT license, changelog, architecture, safety, roadmap, language, distribution, contribution, security, conduct, maintainer, issue, and PR documentation.
 
 ## Verification evidence
@@ -132,11 +135,13 @@ AppSleuth is an evidence-first macOS application uninstaller, cleanup, and diagn
 - **Shell installers:** syntax checked and marked executable. An isolated `/private/tmp` install produced `appsleuth 0.1.0-beta.1`, created `appsl -> appsleuth`, and the uninstall helper removed only those two test entries after confirmation.
 - **Release smoke checks:** version, help, non-interactive usage, read-only doctor JSON, executable architecture, and SHA-256 completed successfully. A stale CI text assertion was found and corrected before commit.
 - **Secret-pattern check:** no common token, access-key, or private-key patterns were found in the public project files.
+- **Online repository:** `YalamberIngnam/appsleuth` is public with `main` as its default branch and the expected description, topics, Issues, merge methods, and remote tracking configuration.
+- **First GitHub CI:** run `30795390764` completed successfully for commit `bc9c168`; the required check context is `Apple Silicon build and test`.
+- **Repository protection:** ruleset `20280255` is active on the default branch and was read back through GitHub's API with the expected deletion, non-fast-forward, linear-history, pull-request, and required-status-check rules.
+- **Release and disclosure security:** GitHub's APIs report private vulnerability reporting and immutable releases as enabled. Public-repository secret scanning and push protection are also enabled.
 
 ## Deliberately unresolved
 
-- GitHub repository creation, remote addition, and first push.
-- Repository ruleset, private vulnerability reporting, and online CI verification.
 - Developer ID signing and Apple notarization.
 - Published `v0.1.0-beta.1` GitHub prerelease.
 - Separate `homebrew-tap` repository and real formula checksum.
@@ -150,7 +155,7 @@ AppSleuth is an evidence-first macOS application uninstaller, cleanup, and diagn
 ## Current distribution reality
 
 - From this source tree, users can run `./scripts/install.sh` and then call `appsleuth` or its `appsl` symlink when the selected install directory is in `PATH`.
-- The repository contains a release workflow, but it cannot publish until an online GitHub repository and tag exist.
+- The public repository contains a release workflow, but no GitHub Release exists until a reviewed version tag is deliberately pushed.
 - The Homebrew formula in `docs/DISTRIBUTION.md` is a template with placeholders. It must not be advertised as a working formula until the GitHub URL, immutable release, and SHA-256 are real.
 - Unqualified `brew install appsleuth` is a long-term goal, not a current capability.
 
@@ -172,7 +177,7 @@ AppSleuth is an evidence-first macOS application uninstaller, cleanup, and diagn
 
 ## Immediate next action
 
-**Create the public `YalamberIngnam/appsleuth` repository, add its remote, push `main`, enable the documented ruleset and private vulnerability reporting, and verify the first CI run. GitHub CLI 2.97.0 is installed and authentication for `YalamberIngnam` has been verified outside the restricted workspace network.** Do not tag or publish `v0.1.0-beta.1`, create a Homebrew tap, execute a real maintenance/purge action, switch languages, add automatic clean-all/optimize-all behavior, kill/unload services, or broaden permanent deletion into shared, system, startup, package-manager, or privileged categories without the required review and authorization.
+**Merge the project-ledger pull request after its required Apple Silicon CI check passes, then let the user review the public repository before deciding whether to publish the first `v0.1.0-beta.1` prerelease.** Do not tag or publish the beta, create a Homebrew tap, execute a real maintenance/purge action, switch languages, add automatic clean-all/optimize-all behavior, kill/unload services, or broaden permanent deletion into shared, system, startup, package-manager, or privileged categories without the required review and authorization.
 
 ## Update protocol
 
