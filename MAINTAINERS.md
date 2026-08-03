@@ -1,8 +1,10 @@
 # Maintainers
 
-## Current status
+## Current maintainer
 
-AppSleuth is seeking its initial named maintainer. Replace this section with the GitHub handle and preferred private contact method when the repository is published.
+- **Yalamber Ingnam** ([@YalamberIngnam](https://github.com/YalamberIngnam)) — founder, initial maintainer, and release owner.
+
+Security reports must use [GitHub private vulnerability reporting](https://github.com/YalamberIngnam/appsleuth/security/advisories/new). General questions and reproducible bugs belong in repository issues after checking the support guide. The maintainer's Git commit email is not the public security channel.
 
 ## Responsibilities
 

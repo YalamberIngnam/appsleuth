@@ -7,7 +7,7 @@ Create an empty public GitHub repository named `appsleuth`, without generating r
 ```bash
 git add .
 git commit -m "Initial AppSleuth MVP"
-git remote add origin https://github.com/YOUR-USERNAME/appsleuth.git
+git remote add origin https://github.com/YalamberIngnam/appsleuth.git
 git push -u origin main
 ```
 

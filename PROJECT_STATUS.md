@@ -9,8 +9,8 @@
 - **Date last updated:** 2026-08-03
 - **Local repository:** initialized on branch `main`
 - **Commit state:** one complete initial import commit on `main`; online publication remains pending
-- **Online hosting:** not configured
-- **Git remote:** not configured
+- **Online hosting:** owner and public URL confirmed; repository creation pending
+- **Git remote:** target is `https://github.com/YalamberIngnam/appsleuth.git`; not added until repository creation
 - **Homebrew tap:** not created
 - **Primary target:** Apple Silicon, macOS 13+
 - **Implementation language:** Swift 6 with Foundation and no third-party runtime dependencies
@@ -135,10 +135,8 @@ AppSleuth is an evidence-first macOS application uninstaller, cleanup, and diagn
 
 ## Deliberately unresolved
 
-- GitHub owner: username or organization not chosen/provided.
-- Final public repository URL.
-- Named maintainer identity and private contact method.
-- GitHub CLI installation/authentication and first push.
+- GitHub repository creation, remote addition, and first push.
+- Repository ruleset, private vulnerability reporting, and online CI verification.
 - Developer ID signing and Apple notarization.
 - Published `v0.1.0-beta.1` GitHub prerelease.
 - Separate `homebrew-tap` repository and real formula checksum.
@@ -174,7 +172,7 @@ AppSleuth is an evidence-first macOS application uninstaller, cleanup, and diagn
 
 ## Immediate next action
 
-**Ask which GitHub username or organization should own AppSleuth. Install and authenticate GitHub CLI before creating the public remote. After the owner is chosen, replace `YOUR-USERNAME`, name the maintainer/security contact, create the public repository, enable the documented ruleset and private vulnerability reporting, and push `main`.** Do not tag or publish `v0.1.0-beta.1`, create a Homebrew tap, execute a real maintenance/purge action, switch languages, add automatic clean-all/optimize-all behavior, kill/unload services, or broaden permanent deletion into shared, system, startup, package-manager, or privileged categories without the required review and authorization.
+**Create the public `YalamberIngnam/appsleuth` repository, add its remote, push `main`, enable the documented ruleset and private vulnerability reporting, and verify the first CI run. GitHub CLI 2.97.0 is installed and authentication for `YalamberIngnam` has been verified outside the restricted workspace network.** Do not tag or publish `v0.1.0-beta.1`, create a Homebrew tap, execute a real maintenance/purge action, switch languages, add automatic clean-all/optimize-all behavior, kill/unload services, or broaden permanent deletion into shared, system, startup, package-manager, or privileged categories without the required review and authorization.
 
 ## Update protocol
 

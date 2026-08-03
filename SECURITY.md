@@ -6,7 +6,7 @@ The project is pre-1.0. Security fixes are applied to the latest release and the
 
 ## Reporting a vulnerability
 
-Use GitHub's private vulnerability reporting feature when it is enabled for the repository. If it is unavailable, contact the repository owner privately through the profile contact listed on GitHub. Do not include private filesystem paths or backup manifests in a public issue.
+Use [GitHub private vulnerability reporting](https://github.com/YalamberIngnam/appsleuth/security/advisories/new). If it is temporarily unavailable, contact [@YalamberIngnam](https://github.com/YalamberIngnam) privately through the profile contact listed on GitHub. Do not include private filesystem paths or backup manifests in a public issue.
 
 Especially important reports include:
 

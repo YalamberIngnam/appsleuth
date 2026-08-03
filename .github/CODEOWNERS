@@ -1,0 +1,7 @@
+* @YalamberIngnam
+
+# Safety policy and implementation changes require maintainer review.
+/Sources/AppSleuthCore/ @YalamberIngnam
+/Tests/ @YalamberIngnam
+/.github/ @YalamberIngnam
+/docs/SAFETY.md @YalamberIngnam

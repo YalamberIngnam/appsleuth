@@ -57,7 +57,7 @@ Ad-hoc signing is not Developer ID signing or Apple notarization. Do not describ
 3. Verify build provenance after replacing the repository owner:
 
    ```bash
-   gh attestation verify appsleuth-v0.1.0-beta.1-macos-arm64.tar.gz -R YOUR-USERNAME/appsleuth
+   gh attestation verify appsleuth-v0.1.0-beta.1-macos-arm64.tar.gz -R YalamberIngnam/appsleuth
    ```
 
 4. Extract the archive, confirm the architecture with `file`, run `appsleuth version`, and exercise help plus read-only `doctor`, `list`, and fixture scans.

@@ -9,7 +9,7 @@ AppSleuth is a volunteer-maintained prerelease project. Help is best-effort, and
 3. Reproduce the problem with a dry-run or read-only command whenever possible.
 4. Remove usernames, private paths, bundle data, backup IDs, tokens, and other secrets from terminal output.
 
-Use a GitHub issue for reproducible bugs and scoped feature requests after the repository is published. Include the AppSleuth version, macOS version, Apple Silicon model, exact sanitized steps, expected behavior, and actual behavior.
+Use a [GitHub issue](https://github.com/YalamberIngnam/appsleuth/issues) for reproducible bugs and scoped feature requests. Include the AppSleuth version, macOS version, Apple Silicon model, exact sanitized steps, expected behavior, and actual behavior.
 
 Do not open a public support issue for unintended data movement, a policy bypass, or another possible vulnerability. Follow [SECURITY.md](SECURITY.md) and use GitHub private vulnerability reporting.
 

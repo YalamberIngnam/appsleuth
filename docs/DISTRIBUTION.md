@@ -7,7 +7,7 @@ AppSleuth uses a staged distribution plan so that convenience does not outrun re
 ### 1. Local source install — available now
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/appsleuth.git
+git clone https://github.com/YalamberIngnam/appsleuth.git
 cd appsleuth
 ./scripts/install.sh
 appsleuth
@@ -54,7 +54,7 @@ Ad-hoc signing is not Apple notarization. Before recommending direct binary down
 Create a separate public repository named `homebrew-tap` under the same GitHub account. Homebrew recognizes that naming convention:
 
 ```bash
-brew tap-new YOUR-USERNAME/homebrew-tap
+brew tap-new YalamberIngnam/homebrew-tap
 ```
 
 After publishing a stable `v0.1.0`, add `Formula/appsleuth.rb` to that tap. Do not point the default Homebrew formula at a beta unless the formula is explicitly named and documented as a prerelease:
@@ -62,8 +62,8 @@ After publishing a stable `v0.1.0`, add `Formula/appsleuth.rb` to that tap. Do n
 ```ruby
 class Appsleuth < Formula
   desc "Evidence-first macOS application uninstaller"
-  homepage "https://github.com/YOUR-USERNAME/appsleuth"
-  url "https://github.com/YOUR-USERNAME/appsleuth/archive/refs/tags/v0.1.0.tar.gz"
+  homepage "https://github.com/YalamberIngnam/appsleuth"
+  url "https://github.com/YalamberIngnam/appsleuth/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "REPLACE_WITH_RELEASE_ARCHIVE_SHA256"
   license "MIT"
 
@@ -85,15 +85,15 @@ end
 Test it before publishing:
 
 ```bash
-brew install --build-from-source YOUR-USERNAME/tap/appsleuth
-brew test YOUR-USERNAME/tap/appsleuth
-brew audit --strict YOUR-USERNAME/tap/appsleuth
+brew install --build-from-source YalamberIngnam/tap/appsleuth
+brew test YalamberIngnam/tap/appsleuth
+brew audit --strict YalamberIngnam/tap/appsleuth
 ```
 
 Users can then install with:
 
 ```bash
-brew install YOUR-USERNAME/tap/appsleuth
+brew install YalamberIngnam/tap/appsleuth
 appsleuth
 ```
 

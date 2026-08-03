@@ -29,7 +29,7 @@ AppSleuth treats uninstalling as an evidence problem:
 Requirements: Apple Silicon Mac, macOS 13 or newer, and the Swift toolchain from Xcode Command Line Tools.
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/appsleuth.git
+git clone https://github.com/YalamberIngnam/appsleuth.git
 cd appsleuth
 ./scripts/install.sh
 appsleuth
@@ -59,7 +59,7 @@ Once installed, use `appsleuth` or `appsl` directly—`.build/release/appsleuth`
 Homebrew installation will become available after the repository has an online home and its first immutable tagged release:
 
 ```bash
-brew install YOUR-USERNAME/tap/appsleuth
+brew install YalamberIngnam/tap/appsleuth
 appsleuth
 ```
 
