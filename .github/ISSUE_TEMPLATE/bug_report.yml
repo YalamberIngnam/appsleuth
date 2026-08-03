@@ -1,0 +1,35 @@
+name: Bug report
+description: Report reproducible incorrect behavior without exposing private paths
+title: "[Bug]: "
+labels: [bug, needs-reproduction]
+body:
+  - type: markdown
+    attributes:
+      value: Do not use this form for a vulnerability or possible unintended data movement. Follow SECURITY.md instead.
+  - type: input
+    id: version
+    attributes:
+      label: AppSleuth version
+      placeholder: appsleuth 0.1.0-beta.1
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and architecture
+      placeholder: macOS 15.x, Apple Silicon
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Sanitized reproduction steps
+      description: Remove usernames, private paths, bundle data, and secrets.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true

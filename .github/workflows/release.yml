@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    name: Build Apple Silicon release
+    runs-on: macos-15
+    timeout-minutes: 20
+    permissions:
+      attestations: write
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Verify architecture
+        run: test "$(uname -m)" = "arm64"
+
+      - name: Run tests
+        run: swift test --parallel
+
+      - name: Build release executable
+        run: swift build -c release
+
+      - name: Verify tag matches executable version
+        run: |
+          release_version=$(.build/release/appsleuth version | awk '{print $2}')
+          test "v$release_version" = "$GITHUB_REF_NAME"
+
+      - name: Package and checksum
+        run: |
+          mkdir -p dist
+          codesign --force --sign - .build/release/appsleuth
+          tar -czf "dist/appsleuth-${GITHUB_REF_NAME}-macos-arm64.tar.gz" -C .build/release appsleuth
+          cd dist
+          shasum -a 256 *.tar.gz > SHA256SUMS
+
+      - name: Attest release archive provenance
+        uses: actions/attest@508db95dd578ae2727ebd6217d5ba78e4fbda05d # v4.2.1
+        with:
+          subject-path: dist/*.tar.gz
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          release_flags=()
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then
+            release_flags+=(--prerelease)
+          fi
+          gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --generate-notes --title "AppSleuth $GITHUB_REF_NAME" "${release_flags[@]}"

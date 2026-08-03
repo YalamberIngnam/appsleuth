@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Apple Silicon build and test
+    runs-on: macos-15
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Verify Apple Silicon runner
+        run: test "$(uname -m)" = "arm64"
+
+      - name: Validate package
+        run: swift package dump-package > /dev/null
+
+      - name: Run tests
+        run: swift test --parallel
+
+      - name: Build release binary
+        run: swift build -c release
+
+      - name: Smoke-test CLI
+        run: |
+          .build/release/appsleuth version
+          .build/release/appsleuth help
+          .build/release/appsleuth doctor --json > /dev/null
+          .build/release/appsleuth </dev/null | grep "Open the interactive terminal menu"
